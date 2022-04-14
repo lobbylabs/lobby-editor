@@ -1,0 +1,23 @@
+{
+  "name": "lobby-editor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lobbylabs/lobby-editor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lobbylabs/lobby-editor/issues"
+  },
+  "homepage": "https://github.com/lobbylabs/lobby-editor#readme",
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  }
+}
