@@ -20,5 +20,6 @@
   "homepage": "https://github.com/lobbylabs/lobby-editor#readme",
   "devDependencies": {
     "typescript": "^4.6.3"
-  }
+  },
+  "files": ["lib/**/*"]
 }
