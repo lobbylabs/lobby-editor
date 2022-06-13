@@ -33,8 +33,8 @@ interface EditorProps {
 }
 
 interface LobbyEditorProps {
-  customExtensions: any[];
-  onContentUpdate: ( editor: Editor | null ) => {} | void;
+  customExtensions?: any[];
+  onContentUpdate?: ( editor: Editor | null ) => {} | void;
 }
 
 export const LobbyEditor = ({ editor, editable }: EditorProps) => {
