@@ -82,11 +82,11 @@ export const setContent = ({
 };
 
 export const useLobbyEditor = ({
-  customExtensions,
-  onContentUpdate,
+  customExtensions = [],
+  onContentUpdate = () => {},
 }: {
   customExtensions: any[];
-  onContentUpdate: ( editor: Editor ) => {}
+  onContentUpdate: ( editor: Editor | null ) => {} | void
 }): TipTapEditor | undefined => {
   let editor = useEditor({
     extensions: [
