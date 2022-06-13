@@ -32,6 +32,11 @@ interface EditorProps {
   editable: boolean;
 }
 
+interface LobbyEditorProps {
+  customExtensions: any[];
+  onContentUpdate: ( editor: Editor | null ) => {} | void;
+}
+
 export const LobbyEditor = ({ editor, editable }: EditorProps) => {
   if (!editor) {
     return null;
@@ -84,10 +89,7 @@ export const setContent = ({
 export const useLobbyEditor = ({
   customExtensions = [],
   onContentUpdate = () => {},
-}: {
-  customExtensions: any[];
-  onContentUpdate: ( editor: Editor | null ) => {} | void
-}): TipTapEditor | undefined => {
+}: LobbyEditorProps ): TipTapEditor | undefined => {
   let editor = useEditor({
     extensions: [
       Dropcursor.configure({
