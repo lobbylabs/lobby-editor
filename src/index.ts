@@ -1,1 +1,0 @@
-export const LobbyEditor = (content: string) => `Lobby Editor`;
