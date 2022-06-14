@@ -131,7 +131,7 @@ export const useLobbyEditor = ({
       ...customExtensions,
     ],
     // triggered on every change
-    onUpdate: ({ editor }) => {
+    onUpdate: ({ editor }: {editor: Editor}) => {
       onContentUpdate(editor);
     },
   }) as TipTapEditor;
