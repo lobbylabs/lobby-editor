@@ -6,7 +6,8 @@
     "jsx": "react-jsx",
     "declaration": true,
     "outDir": "./lib",
-    "strict": true
+    "strict": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src"],
   "exclude": ["node_modules"]

@@ -2,11 +2,12 @@
   "name": "lobby-editor",
   "version": "1.0.0",
   "description": "Lobby's open source editor.",
-  "main": "src/index.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "moduleResolution": "node",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -20,8 +21,15 @@
   },
   "homepage": "https://beta.lobby.so/lobby/quick-start",
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-typescript": "^8.3.3",
     "@types/node": "^18.6.1",
     "@types/react": "^18.0.12",
+    "rollup": "^2.77.0",
+    "rollup-plugin-dts": "^4.2.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-terser": "^7.0.2",
     "typescript": "^4.6.3"
   },
   "files": [
@@ -53,7 +61,8 @@
     "@tiptap/extension-table-row": "^2.0.0-beta.19",
     "@tiptap/extension-text": "^2.0.0-beta.15",
     "@tiptap/react": "^2.0.0-beta.109",
-    "lowlight": "^2.6.1"
+    "lowlight": "^2.6.1",
+    "tslib": "^2.4.0"
   },
   "peerDependencies": {
     "react": "^18.1.0"
