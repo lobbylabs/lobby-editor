@@ -1,11 +1,16 @@
-import resolve from "@rollup/plugin-node-resolve";
+import sizes from "@atomico/rollup-plugin-sizes";
 import commonjs from "@rollup/plugin-commonjs";
-import typescript from "@rollup/plugin-typescript";
+import resolve from "@rollup/plugin-node-resolve";
+import autoExternal from "rollup-plugin-auto-external";
 import dts from "rollup-plugin-dts";
-import { terser } from "rollup-plugin-terser";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import sourcemaps from "rollup-plugin-sourcemaps";
+import { terser } from "rollup-plugin-terser";
+import typescript from "rollup-plugin-typescript2";
 
 const packageJson = require("./package.json");
+
+const basePlugins = [sourcemaps(), resolve(), commonjs(), sizes()];
 
 export default [
   {
@@ -18,22 +23,37 @@ export default [
       },
       {
         file: packageJson.module,
-        format: "esm",
+        format: "es",
         sourcemap: true,
       },
     ],
     plugins: [
+      autoExternal({
+        packagePath: "./package.json",
+      }),
+      ...basePlugins,
       peerDepsExternal(),
       resolve(),
       commonjs(),
-      typescript({ tsconfig: "./tsconfig.json" }),
+      typescript({
+        tsconfig: "./tsconfig.json",
+        tsconfigOverride: {
+          compilerOptions: {
+            declaration: true,
+            paths: {
+              "@tiptap/*": ["packages/*/src"],
+            },
+          },
+          include: [],
+        },
+      }),
       terser(),
     ],
     external: ["react", "react-dom"],
   },
   {
-    input: "dist/esm/types/index.d.ts",
-    output: [{ file: "dist/index.d.ts", format: "esm" }],
+    input: `./dist/es/index.d.ts`,
+    output: [{ file: "dist/index.d.ts", format: "es" }],
     plugins: [dts()],
   },
 ];

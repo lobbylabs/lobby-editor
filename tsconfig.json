@@ -13,7 +13,8 @@
     "declarationDir": "types",
     "sourceMap": true,
     "emitDeclarationOnly": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "."
   },
   "include": ["src"],
   "exclude": ["node_modules"]

@@ -1,3 +1,3 @@
-import { LobbyEditor, setContent } from "./LobbyEditor";
+import { LobbyEditor, setContent, useLobbyEditor } from "./LobbyEditor";
 
-export { LobbyEditor, setContent };
+export { LobbyEditor, setContent, useLobbyEditor };

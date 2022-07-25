@@ -88,10 +88,10 @@ export const setContent = ({
   editor && !editor.isDestroyed && editor.commands?.setContent(content);
 };
 
-const useLobbyEditor = ({
+export const useLobbyEditor = ({
   customExtensions = [],
   onContentUpdate = () => {},
-}: LobbyEditorProps): TipTapEditor | undefined => {
+}: LobbyEditorProps = {}): TipTapEditor | undefined => {
   let editor = useEditor({
     extensions: [
       Dropcursor.configure({
