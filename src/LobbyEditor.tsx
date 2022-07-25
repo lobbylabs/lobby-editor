@@ -20,12 +20,16 @@ import TableCell from "@tiptap/extension-table-cell";
 import TableHeader from "@tiptap/extension-table-header";
 import TableRow from "@tiptap/extension-table-row";
 import Text from "@tiptap/extension-text";
-import { BubbleMenu, Editor as TipTapEditor, EditorContent, useEditor } from "@tiptap/react";
+import {
+  BubbleMenu,
+  Editor as TipTapEditor,
+  EditorContent,
+  useEditor,
+} from "@tiptap/react";
 import { lowlight } from "lowlight/index";
-import { CustomTable } from "./Extensions/CustomTable"
 import { TableBubbleMenu } from "./Components/TableBubbleMenu";
 import { TextBubbleMenu } from "./Components/TextBubbleMenu";
-
+import { CustomTable } from "./Extensions/CustomTable";
 
 interface EditorProps {
   editor?: TipTapEditor;
@@ -34,7 +38,7 @@ interface EditorProps {
 
 interface LobbyEditorProps {
   customExtensions?: any[];
-  onContentUpdate?: ( editor: Editor | null ) => {} | void;
+  onContentUpdate?: (editor: Editor | null) => {} | void;
 }
 
 export const LobbyEditor = ({ editor, editable }: EditorProps) => {
@@ -81,15 +85,13 @@ export const setContent = ({
   editor?: Editor;
   content: string;
 }) => {
-  editor &&
-    !editor.isDestroyed &&
-    editor.commands?.setContent(content);
+  editor && !editor.isDestroyed && editor.commands?.setContent(content);
 };
 
-export const useLobbyEditor = ({
+const useLobbyEditor = ({
   customExtensions = [],
   onContentUpdate = () => {},
-}: LobbyEditorProps ): TipTapEditor | undefined => {
+}: LobbyEditorProps): TipTapEditor | undefined => {
   let editor = useEditor({
     extensions: [
       Dropcursor.configure({
@@ -131,7 +133,7 @@ export const useLobbyEditor = ({
       ...customExtensions,
     ],
     // triggered on every change
-    onUpdate: ({ editor }: {editor: Editor}) => {
+    onUpdate: ({ editor }: { editor: Editor }) => {
       onContentUpdate(editor);
     },
   }) as TipTapEditor;
