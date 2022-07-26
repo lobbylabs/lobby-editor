@@ -12,7 +12,7 @@
     "skipLibCheck": true,
     "declarationDir": "types",
     "sourceMap": true,
-    "emitDeclarationOnly": true,
+    "emitDeclarationOnly": false,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "."
   },
