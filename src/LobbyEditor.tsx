@@ -30,6 +30,7 @@ import { lowlight } from "lowlight/index";
 import { TableBubbleMenu } from "./Components/TableBubbleMenu";
 import { TextBubbleMenu } from "./Components/TextBubbleMenu";
 import { CustomTable } from "./Extensions/CustomTable";
+import sanitizeHtml from "sanitize-html";
 
 interface EditorProps {
   editor?: TipTapEditor;
@@ -38,7 +39,7 @@ interface EditorProps {
 
 interface LobbyEditorProps {
   customExtensions?: any[];
-  onContentUpdate?: (editor: Editor | null) => {} | void;
+  onContentUpdate?: ({ editor }: { editor: Editor | undefined }) => {} | void;
 }
 
 export const LobbyEditor = ({ editor, editable }: EditorProps) => {
@@ -85,12 +86,19 @@ export const setContent = ({
   editor?: Editor;
   content: string;
 }) => {
-  editor && !editor.isDestroyed && editor.commands?.setContent(content);
+  editor &&
+    !editor.isDestroyed &&
+    editor.commands?.setContent(
+      sanitizeHtml(content, {
+        // keeps img tags in
+        allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
+      })
+    );
 };
 
 export const useLobbyEditor = ({
   customExtensions = [],
-  onContentUpdate = () => {},
+  onContentUpdate = ({ editor }: { editor: Editor | undefined }) => {},
 }: LobbyEditorProps = {}): TipTapEditor | undefined => {
   let editor = useEditor({
     extensions: [
@@ -134,9 +142,9 @@ export const useLobbyEditor = ({
     ],
     // triggered on every change
     onUpdate: ({ editor }: { editor: Editor }) => {
-      onContentUpdate(editor);
+      onContentUpdate({ editor });
     },
-  }) as TipTapEditor;
+  });
 
   if (!editor) return undefined;
   return editor;
