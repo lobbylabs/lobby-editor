@@ -17,14 +17,18 @@ export default [
     input: "src/index.ts",
     output: [
       {
-        file: packageJson.main,
         format: "cjs",
         sourcemap: true,
+        dir: 'dist',
+        preserveModules: true,
+        preserveModulesRoot: 'src'
       },
       {
-        file: packageJson.module,
         format: "es",
         sourcemap: true,
+        dir: 'dist',
+        preserveModules: true,
+        preserveModulesRoot: 'src'
       },
     ],
     plugins: [
@@ -52,7 +56,7 @@ export default [
     external: ["react", "react-dom"],
   },
   {
-    input: `./dist/es/index.d.ts`,
+    input: `./dist/index.d.ts`,
     output: [{ file: "dist/index.d.ts", format: "es" }],
     plugins: [dts()],
   },
