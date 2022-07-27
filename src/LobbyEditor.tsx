@@ -27,10 +27,10 @@ import {
   useEditor,
 } from "@tiptap/react";
 import { lowlight } from "lowlight/index";
+import sanitizeHtml from "sanitize-html";
 import { TableBubbleMenu } from "./Components/TableBubbleMenu";
 import { TextBubbleMenu } from "./Components/TextBubbleMenu";
 import { CustomTable } from "./Extensions/CustomTable";
-import sanitizeHtml from "sanitize-html";
 
 interface EditorProps {
   editor?: TipTapEditor;
