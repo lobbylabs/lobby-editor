@@ -41,7 +41,7 @@
     "lib/**/*"
   ],
   "dependencies": {
-    "@tiptap/core": "^2.0.0-beta.174",
+    "@tiptap/core": "2.0.0-beta.174",
     "@tiptap/extension-blockquote": "^2.0.0-beta.26",
     "@tiptap/extension-bold": "^2.0.0-beta.26",
     "@tiptap/extension-bubble-menu": "^2.0.0-beta.56",
@@ -65,14 +65,14 @@
     "@tiptap/extension-table-header": "^2.0.0-beta.22",
     "@tiptap/extension-table-row": "^2.0.0-beta.19",
     "@tiptap/extension-text": "^2.0.0-beta.15",
-    "@tiptap/react": "^2.0.0-beta.104",
+    "@tiptap/react": "2.0.0-beta.104",
     "lowlight": "^2.6.1",
     "sanitize-html": "^2.7.1",
     "tslib": "^2.4.0"
   },
   "peerDependencies": {
-    "@tiptap/core": "^2.0.0-beta.174",
-    "@tiptap/react": "^2.0.0-beta.104",
-    "react": "^17.0.2"
+    "@tiptap/core": "2.0.0-beta.174",
+    "@tiptap/react": "2.0.0-beta.104",
+    "react": "^18.1.0"
   }
 }
