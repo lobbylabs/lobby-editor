@@ -10,8 +10,6 @@ import typescript from "rollup-plugin-typescript2";
 
 const packageJson = require("./package.json");
 
-const basePlugins = [sourcemaps(), resolve(), commonjs(), sizes()];
-
 export default [
   {
     input: "src/index.ts",
@@ -31,7 +29,8 @@ export default [
       autoExternal({
         packagePath: "./package.json",
       }),
-      ...basePlugins,
+      sourcemaps(),
+      sizes(),
       peerDepsExternal(),
       resolve(),
       commonjs(),
