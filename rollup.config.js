@@ -2,7 +2,6 @@ import sizes from "@atomico/rollup-plugin-sizes";
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import autoExternal from "rollup-plugin-auto-external";
-import dts from "rollup-plugin-dts";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import sourcemaps from "rollup-plugin-sourcemaps";
 import { terser } from "rollup-plugin-terser";
@@ -49,10 +48,5 @@ export default [
       terser(),
     ],
     external: ["react", "react-dom"],
-  },
-  {
-    input: `./dist/es/index.d.ts`,
-    output: [{ file: "dist/index.d.ts", format: "es" }],
-    plugins: [dts()],
   },
 ];
