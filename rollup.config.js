@@ -6,6 +6,7 @@ import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import sourcemaps from "rollup-plugin-sourcemaps";
 import { terser } from "rollup-plugin-terser";
 import typescript from "rollup-plugin-typescript2";
+import dts from "rollup-plugin-dts";
 
 const packageJson = require("./package.json");
 
@@ -48,5 +49,10 @@ export default [
       terser(),
     ],
     external: ["react", "react-dom"],
+  },
+  {
+    input: `./dist/es/index.d.ts`,
+    output: [{ file: "dist/index.d.ts", format: "es" }],
+    plugins: [dts()],
   },
 ];
