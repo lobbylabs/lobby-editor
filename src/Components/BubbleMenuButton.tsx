@@ -1,6 +1,6 @@
 import React from "react";
 
-export function BubbleMenuButton({
+export default function BubbleMenuButton({
   onClick,
   iconClass,
   title = undefined,

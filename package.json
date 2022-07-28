@@ -2,7 +2,7 @@
   "name": "lobby-editor",
   "version": "1.0.8",
   "description": "Lobby's open source editor.",
-  "main": "dist/main.js",
+  "main": "dist/bundle.js",
   "types": "./types/index.d.ts",
   "moduleResolution": "node",
   "scripts": {
