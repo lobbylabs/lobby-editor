@@ -1,10 +1,10 @@
 import { Editor } from "@tiptap/react";
-import { BubbleMenuButton } from "./BubbleMenuButton";
+import BubbleMenuButton from "./BubbleMenuButton";
 
 interface TableBubbleMenuProps {
   editor: Editor;
 }
-export const TableBubbleMenu = ({ editor }: TableBubbleMenuProps) => {
+export default function TableBubbleMenu({ editor }: TableBubbleMenuProps) {
   return (
     <>
       <div className="relative bg-white shadow ri-lg mt-62">
@@ -69,4 +69,4 @@ export const TableBubbleMenu = ({ editor }: TableBubbleMenuProps) => {
       </div>
     </>
   );
-};
+}
