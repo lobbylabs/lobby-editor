@@ -8,17 +8,21 @@ A familiar, plug and play, extendable rich text editor for React, based on [Pros
 
 Have a fully functioning editor for your project in no time. First, install using
 
-``` npm install lobby-editor```
+```bash
+ npm install lobby-editor
+ ```
 
 or if you are using yarn
 
-> `yarn add lobby-editor`
+ ```bash 
+yarn add lobby-editor
+```
 
 ## Usage
 
 In your App.js import styling or if you are using Next.js import in your _app.js
 
- ```js
+```js
 import "lobby-editor/dist/es/styles.css";
 ```
 
