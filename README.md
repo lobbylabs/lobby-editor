@@ -20,13 +20,7 @@ yarn add lobby-editor
 
 ## Usage
 
-In your App.js import styling or if you are using Next.js import in your _app.js
-
-```js
-import "lobby-editor/dist/es/styles.css";
-```
-
-Use as desired in your project
+Use as desired in your project like below
 
 ```js
 import { useLobbyEditor, LobbyEditor } from "lobby-editor"
@@ -41,6 +35,17 @@ const App = () => {
 export default App
 ```
 Congrats! You should now have the lobby editor running!
+
+#### Styling 
+
+In your App.js import styling or if you are using Next.js import in your _app.js
+
+Install [RemixIcon](https://github.com/Remix-Design/remixicon)
+
+```js
+import "lobby-editor/dist/es/styles.css";
+import "remixicon/fonts/remixicon.css";
+```
 
 ### Extensions
 Let's now have a look at adding some custom extensions.
