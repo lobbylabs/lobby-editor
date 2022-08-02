@@ -1,3 +1,4 @@
+import React from "react";
 import {
   BubbleMenu,
   Editor as TipTapEditor,
