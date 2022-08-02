@@ -5,12 +5,9 @@
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "types": "dist/index.d.ts",
-  "exports": {
-    "./styles": {
-      "import": "./dist/es/styles.css",
-      "require": "./dist/es/styles.css"
-    }
-  },
+  "files": [
+    "./dist/"
+  ],
   "moduleResolution": "node",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
