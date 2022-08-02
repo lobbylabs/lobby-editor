@@ -36,7 +36,7 @@ export default App
 ```
 Congrats! You should now have the lobby editor running!
 
-#### Styling 
+### Styling 
 
 In your App.js import styling or if you are using Next.js import in your _app.js
 
