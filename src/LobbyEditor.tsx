@@ -33,17 +33,13 @@ export default function LobbyEditor({ editor, editable }: EditorProps) {
           }
         }}
       >
-        {editable ? (
-          <BubbleMenu editor={editor}>
-            {editor.isActive("table") ? (
-              <TableBubbleMenu editor={editor} />
-            ) : (
-              <TextBubbleMenu editor={editor} />
-            )}
-          </BubbleMenu>
-        ) : (
-          <></>
-        )}
+        <BubbleMenu editor={editor}>
+          {editor.isActive("table") ? (
+            <TableBubbleMenu editor={editor} />
+          ) : (
+            <TextBubbleMenu editor={editor} />
+          )}
+        </BubbleMenu>
         <EditorContent className="editor__content" editor={editor} />
       </div>
     </>
