@@ -9,13 +9,21 @@ A familiar, plug and play, extendable rich text editor for React, based on [Pros
 Have a fully functioning editor for your project in no time. First, install using
 
 ```bash
- npm install lobby-editor
+ npm install "@tiptap/core@2.0.0-beta.174" "@tiptap/react@2.0.0-beta.114" remixicon lobby-editor
  ```
 
 or if you are using yarn
 
  ```bash 
-yarn add lobby-editor
+yarn add "@tiptap/core@2.0.0-beta.174" "@tiptap/react@2.0.0-beta.114" remixicon lobby-editor
+```
+
+#### Peer Dependencies
+Lobby editor requires peer dependencies 
+
+```json 
+  "@tiptap/core": "2.0.0-beta.174",
+  "@tiptap/react": "2.0.0-beta.114",
 ```
 
 ## Usage
