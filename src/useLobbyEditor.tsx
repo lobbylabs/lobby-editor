@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { Editor } from "@tiptap/core";
 import Blockquote from "@tiptap/extension-blockquote";
 import Bold from "@tiptap/extension-bold";
@@ -33,7 +35,7 @@ export const useLobbyEditor = ({
   customExtensions = [],
   onContentUpdate = ({ editor }: { editor: Editor | undefined }) => {},
 }: LobbyEditorProps = {}): TipTapEditor | undefined => {
-  let editor = useEditor({
+  const editor = useEditor({
     extensions: [
       Dropcursor.configure({
         color: "black",

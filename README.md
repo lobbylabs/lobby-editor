@@ -71,7 +71,11 @@ const CustomBulletList = BulletList.extend({
 Have a look at the [getting started to see more example](https://beta.lobby.so//documentId?id=cl3syyyvl148024e0ed4159jpt).
 
 #### Note
-> setContent needs to be inside a useEffect because every time the editor is typed in/updated it rerenders the entire component and setContent will be called indefinitely
+> 1. setContent needs to be inside a useEffect because every time the editor is typed in/updated it rerenders the entire component and setContent will be called indefinitely
+
+> 2. To use the BubbleMenu that comes with our editor
+[Tailwind](https://tailwindcss.com/) must be installed.
+
 ## Further Documentation
 
 See More in [Lobby](https://beta.lobby.so/documentId?id=cl338bju797754g7s90gs4tqu).
