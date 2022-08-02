@@ -34,6 +34,7 @@ export default [
           postcss([autoprefixer])
             .process(css)
             .then((result) => result.css),
+        output: "dist/es/styles.css",
       }),
       autoExternal({
         packagePath: "./package.json",
