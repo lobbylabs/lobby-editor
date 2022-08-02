@@ -7,7 +7,6 @@ import { saveAs } from "file-saver";
 
 const Home: NextPage = () => {
   const editor = useLobbyEditor();
-  const [isEditable, setIsEditable] = useState(true);
 
   useEffect(() => {
     if (editor) {
@@ -30,17 +29,9 @@ const Home: NextPage = () => {
           }}
           isActive={true}
         />
-
-        <Button
-          text="Edit"
-          onButtonClick={() => {
-            setIsEditable((prev) => !prev);
-          }}
-          isActive={isEditable}
-        />
       </div>
       <div className="flex flex-col p-4 border rounded-md border-slate-400">
-        <LobbyEditor editor={editor} editable={isEditable} />
+        <LobbyEditor editor={editor} editable={true} />
       </div>
     </div>
   );
