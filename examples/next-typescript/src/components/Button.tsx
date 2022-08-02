@@ -23,7 +23,7 @@ export const Button = ({
       )}
       onClick={onClick}
     >
-      <p>{text}</p>
+      <span>{text}</span>
     </button>
   );
 };

@@ -7,6 +7,7 @@ import { saveAs } from "file-saver";
 
 const Home: NextPage = () => {
   const editor = useLobbyEditor();
+  const [isEditable, setIsEditable] = useState(true);
 
   useEffect(() => {
     if (editor) {
@@ -16,8 +17,8 @@ const Home: NextPage = () => {
 
   return (
     <div className="flex flex-col p-10 space-y-5">
-      <h1 className="font-semibold text-2xl">Lobby Editor Example</h1>
-      <div className="flex flex-row justify-end">
+      <h1 className="text-2xl font-semibold">Lobby Editor Example</h1>
+      <div className="flex flex-row justify-end space-x-4">
         <Button
           text="Export HTML"
           onButtonClick={() => {
@@ -29,9 +30,17 @@ const Home: NextPage = () => {
           }}
           isActive={true}
         />
+
+        <Button
+          text="Edit"
+          onButtonClick={() => {
+            setIsEditable((prev) => !prev);
+          }}
+          isActive={isEditable}
+        />
       </div>
-      <div className="flex flex-col border-slate-400 rounded-md p-4 border">
-        <LobbyEditor editor={editor} editable={true} />
+      <div className="flex flex-col p-4 border rounded-md border-slate-400">
+        <LobbyEditor editor={editor} editable={isEditable} />
       </div>
     </div>
   );
