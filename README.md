@@ -26,6 +26,10 @@ Lobby editor requires peer dependencies
   "@tiptap/react": "2.0.0-beta.114",
 ```
 
+### Note
+> To use the BubbleMenu that comes with our editor
+[Tailwind](https://tailwindcss.com/) must be installed.
+
 ## Usage
 
 Use as desired in your project like below
@@ -90,8 +94,6 @@ Have a look at the [getting started to see more example](https://beta.lobby.so//
 #### Note
 > 1. setContent needs to be inside a useEffect because every time the editor is typed in/updated it rerenders the entire component and setContent will be called indefinitely
 
-> 2. To use the BubbleMenu that comes with our editor
-[Tailwind](https://tailwindcss.com/) must be installed.
 
 ## Further Documentation
 
