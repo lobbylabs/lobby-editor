@@ -38,7 +38,6 @@ export default [
           insertAt: "top",
         },
         name: "styles.css",
-        // extract: true,
         extract: path.join("styles.css"),
       }),
       autoExternal({
@@ -71,10 +70,4 @@ export default [
     plugins: [dts()],
     external: [/\.css$/],
   },
-  // {
-  //   input: `./temp/styles.css`,
-  //   output: [{ file: "dist/es/styles.css", format: "css" }],
-  //   plugins: [postcss()],
-  //   external: [/\.scss$/],
-  // },
 ];
