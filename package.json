@@ -1,6 +1,6 @@
 {
   "name": "lobby-editor",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "description": "Lobby's open source editor.",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
