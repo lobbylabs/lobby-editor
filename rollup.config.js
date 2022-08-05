@@ -1,21 +1,16 @@
 import sizes from "@atomico/rollup-plugin-sizes";
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
+import path from "path";
 import autoExternal from "rollup-plugin-auto-external";
+import dts from "rollup-plugin-dts";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import postcss from "rollup-plugin-postcss";
 import sourcemaps from "rollup-plugin-sourcemaps";
 import { terser } from "rollup-plugin-terser";
 import typescript from "rollup-plugin-typescript2";
-import dts from "rollup-plugin-dts";
-import scss from "rollup-plugin-scss";
-import postcss from "rollup-plugin-postcss";
-import autoprefixer from "autoprefixer";
-import tailwindcss from "tailwindcss";
-import path from "path";
 
 const packageJson = require("./package.json");
-
-console.log(path.join(__dirname, "dist/es/styles.css"));
 
 export default [
   {
