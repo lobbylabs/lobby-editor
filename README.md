@@ -28,8 +28,8 @@ Lobby editor requires peer dependencies
 ```
 
 ### Note
-> To use the BubbleMenu that comes with our editor
-[Tailwind](https://tailwindcss.com/) must be installed.
+⚠️ To use the BubbleMenu that comes with our editor, [Tailwind](https://tailwindcss.com/) must be installed.
+⚠️ Lobby Editor was spun out of a NextJS project at Lobby. It may be compatible with React but works best with NextJS.
 
 ## Usage
 
