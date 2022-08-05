@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .ProseMirror {
   min-height: 50vh;
   padding: 0 0 3rem;

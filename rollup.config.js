@@ -1,15 +1,14 @@
 import sizes from "@atomico/rollup-plugin-sizes";
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
+import path from "path";
 import autoExternal from "rollup-plugin-auto-external";
+import dts from "rollup-plugin-dts";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import postcss from "rollup-plugin-postcss";
 import sourcemaps from "rollup-plugin-sourcemaps";
 import { terser } from "rollup-plugin-terser";
 import typescript from "rollup-plugin-typescript2";
-import dts from "rollup-plugin-dts";
-import scss from "rollup-plugin-scss";
-import postcss from "postcss";
-import autoprefixer from "autoprefixer";
 
 const packageJson = require("./package.json");
 
@@ -29,12 +28,17 @@ export default [
       },
     ],
     plugins: [
-      scss({
-        processor: (css) =>
-          postcss([autoprefixer])
-            .process(css)
-            .then((result) => result.css),
-        output: "dist/es/styles.css",
+      postcss({
+        config: {
+          path: "./postcss.config.js",
+        },
+        extensions: [".css"],
+        minimize: true,
+        inject: {
+          insertAt: "top",
+        },
+        name: "styles.css",
+        extract: path.join("styles.css"),
       }),
       autoExternal({
         packagePath: "./package.json",
@@ -64,6 +68,6 @@ export default [
     input: `./dist/es/index.d.ts`,
     output: [{ file: "dist/index.d.ts", format: "es" }],
     plugins: [dts()],
-    external: [/\.scss$/],
+    external: [/\.css$/],
   },
 ];
