@@ -41,7 +41,7 @@ export default function TextBubbleMenu({ editor }: TextBubbleMenuProps) {
   }, [editor.isFocused]);
 
   return (
-    <div className="relative bg-white rounded shadow ri-lg mt-62 z-100">
+    <div className="relative flex items-center bg-white rounded shadow ri-lg mt-62 z-100">
       {showLinkPopup ? (
         <EditorLinkDialog
           closeLinkPopup={() => setShowLinkPopup(false)}

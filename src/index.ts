@@ -4,7 +4,7 @@ import TextBubbleMenu from "./Components/TextBubbleMenu";
 import LobbyEditor from "./LobbyEditor";
 import setContent from "./setContent";
 import EditorLinkDialog from "./Components/EditorLinkDialog";
-import "./styles.scss";
+import "./styles.css";
 import { useLobbyEditor } from "./useLobbyEditor";
 
 export {

@@ -8,10 +8,14 @@ import { terser } from "rollup-plugin-terser";
 import typescript from "rollup-plugin-typescript2";
 import dts from "rollup-plugin-dts";
 import scss from "rollup-plugin-scss";
-import postcss from "postcss";
+import postcss from "rollup-plugin-postcss";
 import autoprefixer from "autoprefixer";
+import tailwindcss from "tailwindcss";
+import path from "path";
 
 const packageJson = require("./package.json");
+
+console.log(path.join(__dirname, "dist/es/styles.css"));
 
 export default [
   {
@@ -29,12 +33,18 @@ export default [
       },
     ],
     plugins: [
-      scss({
-        processor: (css) =>
-          postcss([autoprefixer])
-            .process(css)
-            .then((result) => result.css),
-        output: "dist/es/styles.css",
+      postcss({
+        config: {
+          path: "./postcss.config.js",
+        },
+        extensions: [".css"],
+        minimize: true,
+        inject: {
+          insertAt: "top",
+        },
+        name: "styles.css",
+        // extract: true,
+        extract: path.join("styles.css"),
       }),
       autoExternal({
         packagePath: "./package.json",
@@ -64,6 +74,12 @@ export default [
     input: `./dist/es/index.d.ts`,
     output: [{ file: "dist/index.d.ts", format: "es" }],
     plugins: [dts()],
-    external: [/\.scss$/],
+    external: [/\.css$/],
   },
+  // {
+  //   input: `./temp/styles.css`,
+  //   output: [{ file: "dist/es/styles.css", format: "css" }],
+  //   plugins: [postcss()],
+  //   external: [/\.scss$/],
+  // },
 ];
