@@ -2,7 +2,8 @@
 ![Lobby Logo](https://uploads-ssl.webflow.com/62d5c8c70f4a12f8dedb0687/62da19a5e440cccca0ecba8e_logomark-color-p-500.png)
 # Lobby Editor
 
-A familiar, plug and play, extendable rich text editor for React, based on [ProseMirror](https://github.com/ProseMirror/prosemirror), built using [TipTap](https://tiptap.dev/)
+A familiar, plug and play, extendable rich text editor for Vercel's Next React framework, based on [ProseMirror](https://github.com/ProseMirror/prosemirror), built using [TipTap](https://tiptap.dev/). This project grew out of our
+internal usage at Lobby and works best when using the Next framework.
 
 ## Install
 
