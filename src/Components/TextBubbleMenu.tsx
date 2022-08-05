@@ -36,6 +36,10 @@ export default function TextBubbleMenu({ editor }: TextBubbleMenuProps) {
     }
   }, [currentURL]);
 
+  useEffect(() => {
+    setShowLinkPopup(false);
+  }, [editor.isFocused]);
+
   return (
     <div className="relative bg-white rounded shadow ri-lg mt-62 z-100">
       {showLinkPopup ? (
