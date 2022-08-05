@@ -61,6 +61,15 @@ import "lobby-editor/dist/es/styles.css";
 import "remixicon/fonts/remixicon.css";
 ```
 
+Add the following to your TailwindCSS config:
+
+```js
+  content: [
+    ...
+    "./node_modules/lobby-editor/**/*.js",
+  ],
+```
+
 ### Extensions
 Let's now have a look at adding some custom extensions.
 
