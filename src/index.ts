@@ -3,6 +3,7 @@ import TableBubbleMenu from "./Components/TableBubbleMenu";
 import TextBubbleMenu from "./Components/TextBubbleMenu";
 import LobbyEditor from "./LobbyEditor";
 import setContent from "./setContent";
+import EditorLinkDialog from "./Components/EditorLinkDialog";
 import "./styles.scss";
 import { useLobbyEditor } from "./useLobbyEditor";
 
@@ -13,4 +14,5 @@ export {
   BubbleMenuButton,
   TableBubbleMenu,
   TextBubbleMenu,
+  EditorLinkDialog,
 };

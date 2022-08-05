@@ -1,12 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Editor } from "@tiptap/react";
 import BubbleMenuButton from "./BubbleMenuButton";
+import EditorLinkDialog from "./EditorLinkDialog";
 
 interface TextBubbleMenuProps {
   editor: Editor;
 }
 
 export default function TextBubbleMenu({ editor }: TextBubbleMenuProps) {
+  const [showLinkPopup, setShowLinkPopup] = useState(false);
+  const [prevURL, setPrevURL] = useState("");
+  const [currentURL, setCurrentURL] = useState("");
+
+  const handleLink = () => {
+    setPrevURL(editor.getAttributes("link").href);
+    if (editor.getAttributes("link").href) {
+      setCurrentURL(editor.getAttributes("link").href);
+    }
+    setShowLinkPopup(true);
+  };
+
+  useEffect(() => {
+    if (currentURL) {
+      const validate = /^https?:\/\//.test(currentURL);
+      if (!validate) {
+        return;
+      }
+      editor
+        .chain()
+        .focus()
+        .setLink({ href: currentURL, target: "_blank" })
+        .run();
+    } else {
+      editor.chain().focus().unsetLink().run();
+    }
+  }, [currentURL]);
   return (
     <div className="relative bg-white rounded shadow ri-lg mt-62 z-100">
       {/* BOLD */}
@@ -91,6 +119,25 @@ export default function TextBubbleMenu({ editor }: TextBubbleMenuProps) {
         onClick={() => editor.chain().focus().toggleCodeBlock().run()}
         title="Code Block"
       ></BubbleMenuButton>
+
+      {/* LINK */}
+      <BubbleMenuButton
+        iconClass="ri-link"
+        onClick={handleLink}
+        title="Link"
+      ></BubbleMenuButton>
+
+      {/* LINK POPUP DIALOG */}
+      <EditorLinkDialog
+        showLinkPopup={showLinkPopup}
+        closeLinkPopup={() => setShowLinkPopup(false)}
+        prevURL={prevURL}
+        setCurrentURL={setCurrentURL}
+      />
     </div>
   );
 }
+
+// ask alex about notistack
+// ask about XIcon
+// ask about usage
