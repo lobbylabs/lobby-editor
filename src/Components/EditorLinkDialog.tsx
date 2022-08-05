@@ -80,7 +80,7 @@ export default function EditorLinkDialog({
                 </div>
                 <div className="flex justify-end mt-4">
                   <button
-                    className="mr-3 text-gray-400"
+                    className="mr-3 text-gray-500 hover:bg-gray-200"
                     onClick={closeLinkPopup}
                   >
                     Cancel
@@ -90,6 +90,7 @@ export default function EditorLinkDialog({
                       setCurrentURL(url);
                       closeLinkPopup();
                     }}
+                    className="bg-blue-600 text-white relative rounded-xl px-4 py-2 font-medium hover:opacity-90 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 focus:ring-opacity-50 focus:outline-none"
                   >
                     Confirm
                   </button>
